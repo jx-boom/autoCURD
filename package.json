@@ -1,9 +1,10 @@
 {
-	"name": "jxxx",
-	"displayName": "JXXX",
+	"name": "autoCURD",
+	"displayName": "autoCURD",
 	"description": "",
 	"version": "0.0.1",
 	"publisher": "Boom", 
+	"icon": "images/icon.png",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -15,14 +16,16 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"keybindings": [{
+			"command": "jxxx.initApi",
+			"key": "ctrl+1",
+			"mac": "cmd+1",
+			"when": "editorTextFocus"
+		}],
 		"commands": [
 			{
-				"command": "jxxx.helloWorld",
-				"title": "初始化"
-			},
-			{
 				"command": "jxxx.initApi",
-				"title": "init"
+				"title": "initApi"
 			}
 		]
 	},

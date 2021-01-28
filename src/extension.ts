@@ -5,12 +5,7 @@ import * as vscode from 'vscode';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	require('./initApi')(context); // helloworld
-let disposable = vscode.commands.registerCommand('jxxx.helloWorld', () => {
-		vscode.window.showInformationMessage('初始化');
-	});
-
-	context.subscriptions.push(disposable);
+	require('./initApi')(context); 
 }
 
 // this method is called when your extension is deactivated

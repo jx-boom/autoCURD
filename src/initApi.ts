@@ -92,14 +92,21 @@ req.end();
 }
 module.exports = function(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand('jxxx.initApi', () => {
-        editFilePath ()
-        vscode.window.showInputBox(
-            { // 这个对象中所有参数都是可选参数
-                ignoreFocusOut:true, // 默认false，设置为true时鼠标点击别的地方输入框不会消失
-                placeHolder:'swagger地址', 
-                prompt:'牛转乾坤呀 ψ(｀∇´)ψ->', 
-            }).then((msg:string) => {
-                downloadFile(msg)
+       
+        vscode.window.showInformationMessage("操作将覆盖src/api文件夹,是否继续",'嗯呐','否')
+        .then(function(select){
+           if(select=='嗯呐') {
+            editFilePath ()
+            vscode.window.showInputBox(
+                { // 这个对象中所有参数都是可选参数
+                    ignoreFocusOut:true, // 默认false，设置为true时鼠标点击别的地方输入框不会消失
+                    placeHolder:'swagger地址', 
+                    prompt:'牛转乾坤呀 ψ(｀∇´)ψ->', 
+                }).then((msg:string) => {
+                    downloadFile(msg)
+            });
+           }
         });
+      
     }));
 }; 
